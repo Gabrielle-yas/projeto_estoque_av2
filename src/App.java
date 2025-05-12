@@ -7,12 +7,13 @@ public class App{
         ArrayList<Produto> listaProdutos = new ArrayList<>();  
         int opcao = 0; 
 
-        while (opcao != 4) {
+        while (opcao != 5) {
             System.out.println("=== Menu ===");
             System.out.println("1 - Cadastrar");
             System.out.println("2 - Editar");
-            System.out.println("3 - Visualizar");
-            System.out.println("4 - SAIR");
+            System.out.println("3 - Excluir");
+            System.out.println("4 - Visualizar");
+            System.out.println("5 - SAIR");
             System.out.print("Escolha uma opção: ");
             opcao = sc.nextInt();
             sc.nextLine();
@@ -90,14 +91,30 @@ public class App{
                     System.out.println(produtos);
                 }
             break;
-
             case 3:
+                System.out.println("Informe o ID do item: ");
+                idBusca = Integer.parseInt(sc.nextLine());
+                Produto produtoParaExcluir = null;
+                for(Produto produto : listaProdutos){
+                    if (produto.getId() == idBusca) {
+                        produtoParaExcluir = produto;
+                    }
+                }
+                if (produtoParaExcluir == null) {
+                    System.out.println("Produto com ID "+ idBusca + " não encontrado!");
+                    return;
+                }
+                listaProdutos.remove(produtoParaExcluir);
+
+                System.out.println("Produto removido com sucesso!");
+            break;
+            case 4:
                 for (Produto produtos : listaProdutos) {
                     System.out.println(produtos);
                 }
             break;
 
-            case 4:
+            case 5:
                 System.out.println("Saindo do sistema!");
             break;
         
