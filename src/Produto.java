@@ -19,13 +19,13 @@ public class Produto {
     }
     @Override
     public String toString() {
-        return "Produto{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", preco=" + preco +
-                ", qntEstoque=" + qntEstoque +
-                ", categoria='" + categoria + '\'' +
+        return "Produto:" +
+                "\r\n Id: " + id +
+                "\r\n Nome: " + nome + '\'' +
+                "\r\n Descricao: " + descricao + '\'' +
+                "\r\n Preco: " + preco +
+                "\r\n Quantidade em Estoque: " + qntEstoque +
+                "\r\n Categoria: " + categoria + '\'' +
                 '}';
     }
     public int getId() {
@@ -63,5 +63,15 @@ public class Produto {
     }
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+    public void mostrarProdutos(){
+        System.out.println("Id: " + this.getId());
+        System.out.println("Nome: " + this.getNome());
+        System.out.println("Descrição: " + this.getDescricao());
+        System.out.println("Preço: " + this.getPreco());
+        System.out.println("Estoque: " + this.getQuantidadeEstoque());
+        System.out.println("Categoria: " + this.getCategoria());
+
     }
 }
